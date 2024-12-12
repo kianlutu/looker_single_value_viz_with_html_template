@@ -3,7 +3,7 @@ looker.plugins.visualizations.add({
         html_template: {
             type: "string",
             label: "HTML Template",
-            default: `<div style="text-align: center; color: #5A2FC2; font-size: 5rem; font-weight: 700;">{{ value }}</div>`
+            default: `<iframe src="{{ value }}" width=100% height=800px>`
         }
     },
 
@@ -28,7 +28,7 @@ looker.plugins.visualizations.add({
         const htmlForCell = LookerCharts.Utils.filterableValueForCell(firstCell);
         const htmlTemplate = config && config.html_template || this.options.html_template.default;
 
-        const htmlFormatted = `<iframe src="${htmlTemplate.replace(/{{.*}}/g, htmlForCell)} width=100% height=800px>`;
+        const htmlFormatted = htmlTemplate.replace(/{{.*}}/g, htmlForCell);
 
         element.innerHTML = htmlFormatted;
 
