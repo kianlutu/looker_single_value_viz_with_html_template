@@ -28,7 +28,7 @@ looker.plugins.visualizations.add({
         const htmlForCell = LookerCharts.Utils.filterableValueForCell(firstCell);
         const htmlTemplate = config && config.html_template || this.options.html_template.default;
 
-        const htmlFormatted = htmlTemplate.replace(/{{.*}}/g, htmlForCell);
+        const htmlFormatted = `<iframe src="${htmlTemplate.replace(/{{.*}}/g, htmlForCell)} width=100% height=800px>`;
 
         element.innerHTML = htmlFormatted;
 
