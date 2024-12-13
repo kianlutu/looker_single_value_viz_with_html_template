@@ -3,8 +3,7 @@ looker.plugins.visualizations.add({
         html_template: {
             type: "string",
             label: "HTML Template",
-            default: `{{ value }}`,
-            iframe_template: `<iframe src="{{ value }}" width=100% height=800px>`
+            default: `<iframe src="{{ value }}" width=100% height=800px>`
         }
     },
 
